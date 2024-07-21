@@ -27,23 +27,32 @@
 #define GET_STREAM_BLOCKING false
 
 #if defined(PLATFORM_T31)
-#define DEFAULT_ENC_MODE_0 "FIXQP"
-#define DEFAULT_ENC_MODE_1 "CAPPED_QUALITY"
-#define DEFAULT_BUFFERS_0 4
-#define DEFAULT_BUFFERS_1 2
-#define DEFAULT_SINTER 128
-#define DEFAULT_TEMPER 128
-#define DEFAULT_SINTER_VALIDATE validateInt255
-#define DEFAULT_TEMPER_VALIDATE validateInt255
+    #define DEFAULT_ENC_MODE_0 "FIXQP"
+    #define DEFAULT_ENC_MODE_1 "CAPPED_QUALITY"
+    #define DEFAULT_BUFFERS_0 4
+    #define DEFAULT_BUFFERS_1 2
+    #define DEFAULT_SINTER 128
+    #define DEFAULT_TEMPER 128
+    #define DEFAULT_SINTER_VALIDATE validateInt255
+    #define DEFAULT_TEMPER_VALIDATE validateInt255
+#elif defined(PLATFORM_T23)
+    #define DEFAULT_ENC_MODE_0 "SMART"
+    #define DEFAULT_ENC_MODE_1 "SMART"
+    #define DEFAULT_BUFFERS_0 2
+    #define DEFAULT_BUFFERS_1 2
+    #define DEFAULT_SINTER 128
+    #define DEFAULT_TEMPER 128
+    #define DEFAULT_SINTER_VALIDATE validateInt255
+    #define DEFAULT_TEMPER_VALIDATE validateInt255
 #else
-#define DEFAULT_ENC_MODE_0 "SMART"
-#define DEFAULT_ENC_MODE_1 "SMART"
-#define DEFAULT_BUFFERS_0 2
-#define DEFAULT_BUFFERS_1 2
-#define DEFAULT_SINTER 50
-#define DEFAULT_TEMPER 50
-#define DEFAULT_SINTER_VALIDATE validateInt50_150
-#define DEFAULT_TEMPER_VALIDATE validateInt50_150
+    #define DEFAULT_ENC_MODE_0 "SMART"
+    #define DEFAULT_ENC_MODE_1 "SMART"
+    #define DEFAULT_BUFFERS_0 2
+    #define DEFAULT_BUFFERS_1 2
+    #define DEFAULT_SINTER 50
+    #define DEFAULT_TEMPER 50
+    #define DEFAULT_SINTER_VALIDATE validateInt50_150
+    #define DEFAULT_TEMPER_VALIDATE validateInt50_150
 #endif
 
 struct roi{
