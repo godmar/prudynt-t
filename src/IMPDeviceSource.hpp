@@ -18,6 +18,7 @@ public:
     int encChn;
 
     EventTriggerId eventTriggerId;
+    void initializationComplete() { needNotify = false; }
 
 protected:
     IMPDeviceSource(UsageEnvironment &env, int encChn);
@@ -31,6 +32,7 @@ private:
     std::queue<H264NALUnit> nalQueue;
     std::mutex queueMutex;
     std::condition_variable queueHasData;
+    bool needNotify = true;    // notify is needed only during initialization
 };
 
 #endif

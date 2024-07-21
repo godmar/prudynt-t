@@ -102,7 +102,10 @@ int IMPDeviceSource::on_data_available(const H264NALUnit &nal)
     }
 
     nalQueue.push(nal);
-    queueHasData.notify_all();
+    if (needNotify)
+    {
+        queueHasData.notify_all();
+    }
     lock.unlock();
 
     envir().taskScheduler().triggerEvent(eventTriggerId, this);
