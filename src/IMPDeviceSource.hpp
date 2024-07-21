@@ -4,6 +4,7 @@
 #include "FramedSource.hh"
 #include "worker.hpp"
 #include <mutex>
+#include <condition_variable>
 #include <queue>
 
 class IMPDeviceSource : public FramedSource
@@ -29,6 +30,7 @@ private:
 
     std::queue<H264NALUnit> nalQueue;
     std::mutex queueMutex;
+    std::condition_variable queueHasData;
 };
 
 #endif
